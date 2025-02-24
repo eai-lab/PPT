@@ -1,0 +1,16 @@
+torch==2.0.1
+easydict==1.11
+einops==0.7.0
+hydra-colorlog==1.2.0
+hydra-core==1.3.2
+matplotlib==3.8.2
+neptune==1.8.6
+pandas==2.1.4
+pytorch-lightning==2.1.3
+scikit-learn==1.4.0
+scipy==1.12.0
+seaborn==0.13.2
+sktime==0.26.0
+tqdm==4.66.1
+lightning
+huggingface
