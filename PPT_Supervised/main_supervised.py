@@ -26,7 +26,7 @@ from supervised_utilities.utilities import (
 
 torch.set_printoptions(sci_mode=False)
 log = logging.getLogger(__name__)
-
+s
 
 @hydra.main(version_base=None, config_path="supervised_conf", config_name="supervised_config")
 def main(cfg: DictConfig) -> None:

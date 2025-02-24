@@ -22,7 +22,7 @@ perform_save_embeddings: False
 
 
 permute_test:
-  perform_test_on_permute_sets: True 
+  perform_test_on_permute_sets: False 
   use_all_test_sets: False # if false, we use test sets with same patch size perturbation.
   permute_sets_dir: "${data.features_save_dir}/permute_testdata/"
   patch_size_sets:

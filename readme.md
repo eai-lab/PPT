@@ -10,23 +10,43 @@ This is the code implementation of our paper: PPT: Patch order Matters in Time S
 ## Installation
 Install the following dependency. 
 ```bash
+conda create -n ppt python=3.10
+conda activate ppt
 pip install -r requirements.txt
+
+# link src folder within PPT_Supervised and PPT_SelfSupervised
+cd PPT_Supervised 
+ln -s ../src
+cd ../PPT_SelfSupervised
+ln -s ../src
 ```
-The main dependency are the following. We plan to deploy the `permutation` operation and `acf-cos` calculation as pip modules in the near future.
+The main dependency are the following. 
+We plan to deploy the cleaned, and optimized `permutation` operation and `acf-cos` calculation as pip modules by April 2025. We are currently working on it.
+
 ```bash
 torch==2.0.1
 pytorch-lightning==2.1.3 #Trainer module
 hydra-core==1.3.2 # argparser.
 ```
-
+## Data
+Download the data from [here](https://drive.google.com/drive/folders/1XqTu_EjU5VJva7tmSXKJLq8ymIo-5jBD?usp=sharing).
+Place the data in `src/data/`. So the data folder should look like this:
+```
+src/
+├── data/
+│   ├── EMOPain/
+│   ├── gilon_chunk40_window160_72users/
+│   ├── ms_har/
+│   └── PTB/
+└── dataset/
+```
 ## src
 The `src` folder contains essential subdirectories utilized for both supervised and self-supervised training approaches.
-
 - `data`: Hosts raw and preprocessed datasets.
 - `dataset`: Includes PyTorch dataset classes.
 - `layers`: Implements necessary layers for `PatchTST` and `PITS`.
 - `loss`: Contains `consistency` and `contrastive` loss modules, along with patch shuffling operations.
-- `shuffled_idx`: Stores permuted index dictionaries.
+- `shuffled_idx`: Stores permuted index tensors.
 
 ## PPT_Supervised
 This repository is dedicated to the Supervised Training Scenario, integrating SSL (Self-Supervised Learning) Losses with traditional Cross-Entropy loss.
