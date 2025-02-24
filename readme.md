@@ -66,12 +66,10 @@ python main_supervised.py data=ptb model=patchtst data.validation_cv_num=0 \
                 gpu_id=0 light_model=light_patchtst_permute exp_num=9999 \
                 model.patch_len=10 model.stride=10\
                 light_model.optimizer.lr=0.002 \
-                permute_test.patch_size_sets=[10] \ # Size of patches in permuted test set.
-                permute_test.perform_test_on_permute_sets=True \ # Perform test on permuted test set.
-                shuffler.permute_freq=10 \ # This sets the lower bound for strong permutation frequency.
+                shuffler.permute_freq=10 \ 
                 model.pe=sincos model.d_model=128 model.n_heads=8 model.n_layers=3 \
                 task.limit_train_batches=1.0 \ # Use full dataset.
-                light_model.ssl_loss.use_awl_loss=True \ # Use uncertainty weighted loss
+                light_model.ssl_loss.use_awl_loss=True \ 
                 light_model.ssl_loss.use_consistency_loss=True  \
                 light_model.ssl_loss.use_margin_loss=True  \
                 light_model.callbacks.patience=3 \
