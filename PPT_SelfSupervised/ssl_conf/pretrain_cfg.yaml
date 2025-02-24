@@ -1,0 +1,41 @@
+defaults:
+# select between "gilon_activity", SleepEEG
+  - data: gilon_activity
+  # patchtst, lstm, tcn, transformer
+  - model: patchtst
+  - shuffler: sequenceshuffler
+  - light_model: light_patchtst_pretrain_cl #light_patchtst_pretrain_permute
+  - task: pretrain
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+
+
+exp_num: 9999
+seed: 42
+gpu_id: 1
+save_pt_file: True
+save_attention_file: False
+benchmark: False
+deterministic: False
+
+permute_test:
+  perform_test_on_permute_sets: False 
+  use_all_test_sets: False # if false, we use test sets with same patch size perturbation.
+  permute_sets_dir: "${data.features_save_dir}/permute_testdata/"
+  patch_size_sets:
+    - 5
+
+logger:
+  project_name: TEAMDEMA/recbamteam
+  mode: debug #debug or async
+  name: "${task.task_name}_${model.model_name}_EXP${exp_num}"
+  api_key: None
+
+save_embedding: False
+save_embedding_path: embeddings/${task.task_name}/${data.data_name}/${model.model_name}/EXP${exp_num}
+save_pt_path: ssl_weights/${task.task_name}/${data.data_name}/${model.model_name}/EXP${exp_num}
+save_output_path: ssl_outputs/${task.task_name}/${data.data_name}/${model.model_name}/EXP${exp_num}
+hydra:
+  run:
+    dir: ${save_output_path}

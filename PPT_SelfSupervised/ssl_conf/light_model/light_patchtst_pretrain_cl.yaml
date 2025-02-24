@@ -1,0 +1,31 @@
+light_name: light_patchtst_pretrain_cl
+
+
+optimizer:
+  lr: 0.002
+scheduler: 
+  scheduler_type: null
+
+callbacks:
+  monitor: loss 
+  check_val_every_n_epoch: 1
+  max_epochs: 50
+  max_steps: 1000
+  save_top_k: 1
+  monitor_mode: min
+  patience: 10
+  min_delta: 0.001
+
+dataset:
+  batch_size: 32
+  num_workers: 16
+  fast_dev_run: False 
+  limit_train_batches: 1.0
+  limit_val_batches: 0.0
+  train_ratio: 1.0 # This is for SSL setting. Check gilon_dataset.py for example
+
+# Use Complementary Contrastive Learning implemneted in PITS.
+
+ssl_loss:
+  use_only_last_layer : False # This does not matter here, leave it for consistency
+  mask_ratio: 0.5

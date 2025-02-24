@@ -1,0 +1,6 @@
+data_name: EMOPain
+features_save_dir: EMOPain
+validation_cv_num: -1
+c_in: 30
+seq_len: 200
+num_class: 3

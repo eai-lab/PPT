@@ -1,0 +1,13 @@
+model_name: 'pits'
+
+
+patch_len: 10
+stride: 10
+d_model: 256
+individual: False
+shared_embedding: False
+padding_patch: null
+
+
+### Fine-Tuning ###
+head_type: lstm # lstm, last, cls

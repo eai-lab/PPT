@@ -1,0 +1,7 @@
+data_name: ms_har
+features_save_dir: ms_har
+validation_cv_num: 0
+
+c_in: 6
+seq_len: 200
+num_class: 10

@@ -1,0 +1,2 @@
+task_name: fullfinetune_with_ppt
+train_ratio: 1.0

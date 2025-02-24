@@ -1,0 +1,8 @@
+shuffled_idx_base_path: src/shuffled_idx
+permute_freq: 40
+# select between random, vicinity, farthest
+strong_permute_strategy: random
+weak_permute_strategy: random
+
+
+

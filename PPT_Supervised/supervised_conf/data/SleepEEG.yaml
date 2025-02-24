@@ -1,0 +1,6 @@
+data_name: SleepEEG
+features_save_dir: SleepEEG
+validation_cv_num: -1
+c_in: 1
+seq_len: 178
+num_class: 5

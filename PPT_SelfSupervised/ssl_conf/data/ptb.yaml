@@ -1,0 +1,7 @@
+data_name: ptb
+features_save_dir: PTB
+validation_cv_num: -1 # There is no validation split here. We use random seed instead.
+
+c_in: 15
+seq_len: 300
+num_class: 2

@@ -1,0 +1,31 @@
+defaults:
+# select between "gilon_activity"
+  - data: ptb
+  # patchtst, lstm, tcn, transformer
+  - model: pits
+  - light_model: light_fullfinetune_with_ppt
+  - shuffler: sequenceshuffler
+  - task: fullfinetune_with_ppt
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+exp_num: 9999
+pretrain_exp_num: 100
+seed: 42
+gpu_id: 1
+save_pt_file: False
+benchmark: False
+deterministic: False
+
+logger:
+  project_name: TEAMDEMA/recbamteam
+  mode: debug #debug or async
+  name: "${model.model_name}_EXP${exp_num}"
+  api_key: None
+
+load_pt_path: ssl_weights/pretrain/${data.data_name}/${model.model_name}/EXP${pretrain_exp_num}
+pretrain_pt_file: null #cv1_pretrain.pt #
+save_output_path: ssl_outputs/${task.task_name}/${light_model.light_name}/${data.data_name}/${model.model_name}/EXP${exp_num}
+hydra:
+  run:
+    dir: ${save_output_path}

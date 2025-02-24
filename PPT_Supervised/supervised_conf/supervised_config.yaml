@@ -1,0 +1,42 @@
+defaults:
+# select between "gilon_activity", 
+  - data: gilon_activity
+  - model: patchtst
+  - task: supervised
+  - shuffler: sequenceshuffler 
+  - light_model: light_patchtst_permute # light_patchtst_permute, light_lstm
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
+
+
+
+
+benchmark: False
+deterministic: False
+exp_num: 9999
+seed: 42
+gpu_id: 1
+save_pt_file: False
+perform_save_embeddings: False
+
+
+
+permute_test:
+  perform_test_on_permute_sets: True 
+  use_all_test_sets: False # if false, we use test sets with same patch size perturbation.
+  permute_sets_dir: "${data.features_save_dir}/permute_testdata/"
+  patch_size_sets:
+    - 5
+
+
+logger:
+  project_name: null
+  mode: debug #debug or async
+  name: "${task.task_name}_${model.model_name}_EXP${exp_num}"
+  api_key: null
+
+save_pt_path: supervised_weights/${light_model.light_name}/${data.data_name}/${model.model_name}/EXP${exp_num}
+save_output_path: supervised_outputs/${light_model.light_name}/${data.data_name}/EXP${exp_num}
+hydra:
+  run:
+    dir: ${save_output_path}

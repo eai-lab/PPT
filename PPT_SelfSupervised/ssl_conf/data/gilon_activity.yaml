@@ -1,0 +1,7 @@
+data_name: gilon_activity
+features_save_dir: gilon_chunk40_window160_72users
+validation_cv_num: 1
+
+c_in: 14
+seq_len: 160
+num_class: 7

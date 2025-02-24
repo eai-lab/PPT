@@ -1,0 +1,23 @@
+light_name: light_lstm
+
+
+
+optimizer:
+  lr: 0.002
+scheduler: none
+
+
+callbacks:
+  monitor: val_loss 
+  check_val_every_n_epoch: 1
+  max_epochs: 200
+  max_steps: -1
+  save_top_k: 1
+  monitor_mode: min
+  patience: 2
+  min_delta: 0
+
+dataset:
+  batch_size: 128
+  num_workers: 4
+
