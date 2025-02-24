@@ -20,9 +20,12 @@ ln -s ../src
 cd ../PPT_SelfSupervised
 ln -s ../src
 ```
-The main dependency are the following. 
-We plan to deploy the cleaned, and optimized `permutation` operation and `acf-cos` calculation as pip modules by April 2025. We are currently working on it.
 
+We plan to deploy the cleaned, and optimized `permutation` operation and `acf-cos` calculation as pip modules by April 2025. We are currently working on it. On the meantime, you can check `src/loss/patchshuffler.py` for the implementation of `permutation` operation.
+```bash
+```
+
+The main dependency are the following. 
 ```bash
 torch==2.0.1
 pytorch-lightning==2.1.3 #Trainer module
